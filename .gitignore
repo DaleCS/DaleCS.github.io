@@ -287,6 +287,8 @@ psd
 thumb
 sketch
 
+build
+
 ### SublimeText ###
 # Cache files for Sublime Text
 *.tmlanguage.cache
