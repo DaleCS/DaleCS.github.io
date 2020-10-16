@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
 
-function App() {
+import { About } from "./components";
+
+const App = () => {
   return (
-    <div>uwu</div>
+    <Fragment>
+      <About />
+      <About />
+      <About />
+      <About />
+    </Fragment>
   );
 }
 
