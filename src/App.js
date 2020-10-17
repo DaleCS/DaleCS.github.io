@@ -1,16 +1,50 @@
-import React, { Fragment } from 'react';
+import React, { useRef } from 'react';
 import './App.css';
 
-import { About } from "./components";
+import { About, Portfolio, Contact, Navigator } from "./components";
 
 const App = () => {
+  const aboutRef = useRef(null);
+  const portfolioRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const scrollTo = (section) => {
+    switch (section) {
+      case "aboutme": {
+        if (aboutRef.current) {
+          aboutRef.current.scrollIntoView({
+            behavior: "smooth"
+          })
+        }
+        break;
+      }
+      case "portfolio": {
+        if (portfolioRef.current) {
+          portfolioRef.current.scrollIntoView({
+            behavior: "smooth"
+          })
+        }
+        break;
+      }
+      case "contact": {
+        if (contactRef.current) {
+          contactRef.current.scrollIntoView({
+            behavior: "smooth"
+          })
+        }
+        break;
+      }
+      default: { }
+    }
+  }
+
   return (
-    <Fragment>
-      <About />
-      <About />
-      <About />
-      <About />
-    </Fragment>
+    <React.Fragment>
+      <Navigator scrollTo={scrollTo} />
+      <About ref={aboutRef} />
+      <Portfolio ref={portfolioRef} />
+      <Contact ref={contactRef} />
+    </React.Fragment>
   );
 }
 

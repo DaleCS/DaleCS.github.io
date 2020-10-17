@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const getLowerScrollTrigger = () => {
-    return Math.floor(window.pageYOffset + window.innerHeight - (window.innerHeight / 5));
+    return Math.floor(window.pageYOffset + window.innerHeight - (window.innerHeight / 8));
 }
 
 const useScrollTriggerLevel = () => {
