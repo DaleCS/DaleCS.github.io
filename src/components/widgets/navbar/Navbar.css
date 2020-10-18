@@ -1,0 +1,45 @@
+.navbar-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar-div-anims {
+    z-index: 1;
+    position: absolute;
+    top: 100%;
+    background-color: #121212;
+    width: 50%;
+    height: 100%;
+}
+
+.navbar-selection {
+    position: relative;
+    font-family: "Noto Sans JP";
+    font-size: 1em;
+    color: #dfe6e9;
+    top: 1.5em;
+    border-bottom: 2px solid #121212;
+    animation: moveUp 0.5s ease;
+    animation-fill-mode: forwards;
+    transition: border-bottom 0.5s;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.navbar-selection:hover {
+    border-bottom: 2px solid #dfe6e9;
+}
+
+@keyframes moveUp {
+    0% {
+        top: 1.5em;
+    }
+    100% {
+        top: 0;
+    }
+}

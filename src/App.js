@@ -1,16 +1,23 @@
-import React, { useRef } from 'react';
+import React, { useRef, Fragment } from 'react';
 import './App.css';
 
-import { About, Portfolio, Contact, Navigator } from "./components";
+import { About, Portfolio, Contact } from "./components";
+import { useScrollTrigger, useBreakpoints } from './hooks';
 
 const App = () => {
-  const aboutRef = useRef(null);
-  const portfolioRef = useRef(null);
-  const contactRef = useRef(null);
+  const aboutRef = useRef(null); // Holds the main div element in the About component
+  const portfolioRef = useRef(null); // Holds the main div element in the Portfolio component
+  const contactRef = useRef(null); // Holds the main div element in the Contact component
+
+  const sectionsRef = useRef({ "aboutme": aboutRef, "portfolio": portfolioRef, "contact": contactRef });
+  const visibilityObj = useScrollTrigger(sectionsRef.current);
+
+  const breakpoint = useBreakpoints();
 
   const scrollTo = (section) => {
     switch (section) {
-      case "aboutme": {
+      case "aboutme":
+      case "about me": {
         if (aboutRef.current) {
           aboutRef.current.scrollIntoView({
             behavior: "smooth"
@@ -39,13 +46,12 @@ const App = () => {
   }
 
   return (
-    <React.Fragment>
-      <Navigator scrollTo={scrollTo} />
-      <About ref={aboutRef} />
-      <Portfolio ref={portfolioRef} />
-      <Contact ref={contactRef} />
-    </React.Fragment>
+    <Fragment>
+      <About ref={aboutRef} isVisible={visibilityObj["aboutme"]} scrollTo={scrollTo} breakpoint={breakpoint} />
+      <Portfolio ref={portfolioRef} isVisible={visibilityObj["portfolio"]} breakpoint={breakpoint} />
+      <Contact ref={contactRef} isVisible={visibilityObj["contact"]} breakpoint={breakpoint} />
+    </Fragment>
   );
-}
+};
 
 export default App;

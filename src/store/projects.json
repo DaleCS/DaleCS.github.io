@@ -1,0 +1,74 @@
+[
+    {
+        "key": "degreeinsight",
+        "title": "Degreeinsight.io",
+        "technologies": "TypeScript, Angular, Material, Adobe XD, HTML, CSS, Agile",
+        "description": "",
+        "responsibilities": [
+            "Collaborated with a team of senior university students to develop a web application that helps students plan out when to take courses in order to graduate in time.",
+            "Deliberated with teammates to identify needed technologies to formulate thetech stack to be used.",
+            "Designed UI/UX mockups and prototypes to provide visual representation during development.",
+            "Architected and implemented responsive front-end UI interfaces for various feature specs such as student profile and term planning dashboard."
+        ],
+        "timeStart": "Fall 2019",
+        "timeEnd": "Spring 2020"
+    },
+    {
+        "key": "abode",
+        "title": "Abode.city",
+        "technologies": "JavaScript, React, Redux, NodeJS, MongoDB, Express, Material UI, HTML, CSS, Agile",
+        "description": "",
+        "responsibilities": [
+            "Developed a web application that simulates a hotel booking website with a team of fellow engineering students.",
+            "Drafted UI mockups for the landing page, hotel search page, and city description pages.",
+            "Built the front-end for the hotel search and city description feature specs complete with search result filtering and page responsiveness."
+        ],
+        "timeEnd": "Spring 2019"
+    },
+    {
+        "key": "spartanagenda",
+        "title": "Spartan Agenda",
+        "technologies": "Java, Spring Boot, MySQL, JavaScript, React, HTML, CSS, Docker",
+        "description": "",
+        "responsibilities": [
+            "Engineered RESTful APIs and utilized JSON Web Tokens and Spring Security to secure them.",
+            "Programmed a user authentication API complete with salting/hashing of passwords and credentials validation"
+        ],
+        "timeEnd": "Spring 2020"
+    },
+    {
+        "key": "spartanstop",
+        "title": "Spartanstop.com",
+        "technologies": "JavaScript, React, Redux, NodeJS, MongoDB, Express, Bootstrap, HTML, CSS, Agile",
+        "description": "",
+        "responsibilities": [
+            "Built the front-end of the search products by category and food recipes features.",
+            "Implemented the corresponding back-end support for the food recipes featurewhich queriesand servesdata from a MongoDB instance."
+        ],
+        "timeEnd": "Fall 2018"
+    },
+    {
+        "key": "bytedrive",
+        "title": "Byte Drive",
+        "technologies": "",
+        "description": "",
+        "responsibilities": "",
+        "timeEnd": ""
+    },
+    {
+        "key": "textencryptor",
+        "title": "Text Encryptor",
+        "technologies": "",
+        "description": "",
+        "responsibilities": "",
+        "timeEnd": ""
+    },
+    {
+        "key": "nodistractions",
+        "title": "No Distractions",
+        "technologies": "",
+        "description": "",
+        "responsibilities": "",
+        "timeEnd": ""
+    }
+]
