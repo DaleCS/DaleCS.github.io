@@ -3,38 +3,53 @@ import React, { forwardRef } from "react";
 import "../../App.css";
 import "./Portfolio.css";
 
-import { ProjectCard } from "../";
+import { PageHeader } from "../";
 import { useWindowDimensions } from "../../hooks";
 
-import { projects } from "../../store";
+// import { projects } from "../../store";
 
-const Portfolio = forwardRef(({ isVisible }, ref) => {
-    const windowSize = useWindowDimensions();
+const ProjectCard = ({ project, breakpoint }) => {
+  return (
+    <div className={`project-card ${breakpoint}`}>
+      <span className="h5">{project}</span>
+    </div>
+  );
+};
 
-    const renderProjects = () => {
-        if (isVisible) {
-            let timeInc = 100;
-            return projects.map(proj => {
-                timeInc += 125;
-                return <ProjectCard project={proj} display={isVisible} animsTimer={timeInc} key={proj.key} />
-            });
-        } else {
-            return projects.map(proj => {
-                return <ProjectCard project={proj} display={isVisible} animsTimer={0} key={proj.key} />
-            })
-        }
-    }
+const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
+  const windowSize = useWindowDimensions();
 
-    let projectsMarkup = renderProjects();
+  const handleOnGithubClick = (e) => {
+    e.preventDefault();
+    window.open("https://github.com/dalecs");
+  };
 
-    return (
-        <div className="section portfolio-bkg" style={{ minHeight: windowSize.height }} ref={ref}>
-            <span className="h1">Portfolio</span>
-            <div className="projects-container">
-                {projectsMarkup}
-            </div>
-        </div >
-    );
-})
+  return (
+    <div
+      className="section projects-bkg"
+      style={{ minHeight: windowSize.height }}
+      ref={ref}
+    >
+      <PageHeader>projects.</PageHeader>
+      <div className={`projects-container ${breakpoint}`}>
+        <ProjectCard project="Degreeinsight.io" breakpoint={breakpoint} />
+        <ProjectCard project="Abode.city" breakpoint={breakpoint} />
+        <ProjectCard project="Spartanstop.com" breakpoint={breakpoint} />
+        <ProjectCard project="Spartan Agenda" breakpoint={breakpoint} />
+        <ProjectCard project="Byte Drive" breakpoint={breakpoint} />
+        <ProjectCard
+          project="Text Encryptor/Decryptor"
+          breakpoint={breakpoint}
+        />
+      </div>
+      <span>
+        ... more in my{" "}
+        <span className="github-link" onClick={handleOnGithubClick}>
+          Github
+        </span>
+      </span>
+    </div>
+  );
+});
 
 export default Portfolio;

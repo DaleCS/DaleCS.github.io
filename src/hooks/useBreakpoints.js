@@ -10,36 +10,32 @@ import { useState, useEffect } from "react";
  */
 
 const calculateCurrentBreakpoints = () => {
-    const width = window.innerWidth;
-    if (width < 600) {
-        return 1;
-    } else if (width >= 600 && width < 960) {
-        return 2;
-    } else if (width >= 960 && width < 1280) {
-        return 3;
-    } else if (width >= 1280 && width < 1920) {
-        return 4;
-    } else {
-        return 5;
-    }
-}
+  const width = window.innerWidth;
+  if (width < 960) {
+    return "sm";
+  } else if (width >= 960 && width < 1280) {
+    return "md";
+  } else {
+    return "lg";
+  }
+};
 
 const useBreakpoints = () => {
-    const [breakpoint, setBreakpoint] = useState(calculateCurrentBreakpoints());
+  const [breakpoint, setBreakpoint] = useState(calculateCurrentBreakpoints());
 
-    useEffect(() => {
-        const handleResize = () => {
-            setBreakpoint(calculateCurrentBreakpoints());
-        };
+  useEffect(() => {
+    const handleResize = () => {
+      setBreakpoint(calculateCurrentBreakpoints());
+    };
 
-        window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize);
 
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        }
-    }, []);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
-    return breakpoint;
-}
+  return breakpoint;
+};
 
 export default useBreakpoints;

@@ -1,0 +1,162 @@
+.intro-bkg {
+  font-family: "Ubuntu", sans-serif;
+  background-color: #121212;
+  color: #dfe6e9;
+  padding: 0;
+}
+
+.intro-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.intro-container-text-line-1 {
+  opacity: 0;
+  animation: introTextAnims 1000ms ease;
+  animation-delay: 1500ms;
+  animation-fill-mode: forwards;
+}
+
+.intro-container-text-line-2 {
+  opacity: 0;
+  animation: introTextAnims 1000ms ease;
+  animation-delay: 2500ms;
+  animation-fill-mode: forwards;
+}
+
+.intro-container.lg {
+  font-size: 6em;
+  font-weight: lighter;
+  letter-spacing: -1.5px;
+}
+
+.intro-container.md {
+  font-size: 3.75em;
+  font-weight: lighter;
+  letter-spacing: -0.5px;
+}
+
+.intro-container.sm {
+  font-size: 3em;
+  font-weight: lighter;
+  letter-spacing: 0px;
+}
+
+.intro-container-borderanim {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  align-self: flex-start;
+  animation: introBorderAnims 1250ms ease, introBorderAnimsDisappear 1000ms ease;
+  animation-delay: 0ms, 3500ms;
+  animation-fill-mode: forwards;
+}
+
+.clr-blue {
+  color: #0984e3;
+}
+
+.navbar-container {
+  position: absolute;
+  padding: 0;
+  padding-top: 16em;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-selection {
+  position: relative;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.navbar-selection.selection-1 {
+  animation: navbarSelectionAnims 500ms ease;
+  animation-fill-mode: forwards;
+  animation-delay: 3500ms;
+}
+
+.navbar-selection.selection-2 {
+  animation: navbarSelectionAnims 500ms ease;
+  animation-fill-mode: forwards;
+  animation-delay: 3600ms;
+}
+
+.navbar-selection.selection-3 {
+  animation: navbarSelectionAnims 500ms ease;
+  animation-fill-mode: forwards;
+  animation-delay: 3700ms;
+}
+
+.navbar-selection.selection-4 {
+  animation: navbarSelectionAnims 500ms ease;
+  animation-fill-mode: forwards;
+  animation-delay: 3800ms;
+}
+
+/* Animations */
+@keyframes introBorderAnims {
+  0% {
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+  }
+  5% {
+    width: 0%;
+    height: 0%;
+    opacity: 1;
+  }
+  30% {
+    width: 0%;
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes introBorderAnimsDisappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes introTextAnims {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes navbarSelectionAnims {
+  0% {
+    opacity: 0;
+    top: 1em;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
