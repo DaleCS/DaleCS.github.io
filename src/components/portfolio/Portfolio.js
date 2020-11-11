@@ -31,7 +31,7 @@ const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
       ref={ref}
     >
       <PageHeader>projects.</PageHeader>
-      <div className={`projects-container ${breakpoint}`}>
+      <div className={`projects-container ${breakpoint} border1`}>
         <ProjectCard project="Degreeinsight.io" breakpoint={breakpoint} />
         <ProjectCard project="Abode.city" breakpoint={breakpoint} />
         <ProjectCard project="Spartanstop.com" breakpoint={breakpoint} />

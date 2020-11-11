@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import "../../App.css";
 import "./PageHeader.css";
 
-const PageHeader = ({ children, delay }) => {
+const PageHeader = ({ children, delay, breakpoint }) => {
   const [sectionStr, setSectionStr] = useState("");
   const strRef = useRef("");
   const paddingRef = useRef("");
@@ -59,7 +59,7 @@ const PageHeader = ({ children, delay }) => {
   return (
     <div className="page-header">
       <div className="page-header-text-rotate">
-        <span className="page-header-text">{sectionStr}</span>
+        <span className={`page-header-text ${breakpoint}`}>{sectionStr}</span>
       </div>
     </div>
   );
