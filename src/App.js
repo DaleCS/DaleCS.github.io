@@ -1,7 +1,7 @@
 import React, { useRef, Fragment } from "react";
 import "./App.css";
 
-import { Intro, About, Portfolio, Contact } from "./components";
+import { Navbar, Intro, About, Portfolio, Contact } from "./components";
 import { useScrollTrigger, useBreakpoints } from "./hooks";
 
 const App = () => {
@@ -21,7 +21,8 @@ const App = () => {
   const breakpoint = useBreakpoints();
 
   const scrollTo = (section) => {
-    switch (section) {
+    switch (section.toLowerCase()) {
+      case "dalecs":
       case "intro": {
         if (introRef.current) {
           introRef.current.scrollIntoView({
@@ -62,16 +63,15 @@ const App = () => {
 
   return (
     <Fragment>
+      <Navbar scrollTo={scrollTo} breakpoint={breakpoint} />
       <Intro
         ref={introRef}
-        isVisible={visibilityObj["aboutme"]}
-        scrollTo={scrollTo}
+        isVisible={visibilityObj["intro"]}
         breakpoint={breakpoint}
       />
       <About
         ref={aboutRef}
         isVisible={visibilityObj["aboutme"]}
-        scrollTo={scrollTo}
         breakpoint={breakpoint}
       />
       <Portfolio

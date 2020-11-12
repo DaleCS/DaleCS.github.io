@@ -8,23 +8,28 @@
 .contact-container {
   display: flex;
   flex-direction: Row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   align-content: center;
-}
-
-.contact-container.lg {
-  width: 50%;
+  width: 80%;
 }
 
 .other-contacts-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
+.other-contacts-container.md {
+  height: 364px;
+}
+
 .other-contacts-container.lg {
+  height: 514px;
+}
+
+.other-contacts-container.xl {
   height: 816px;
 }
 
@@ -38,16 +43,57 @@
   cursor: pointer;
 }
 
-.contact-card.main.lg {
-  width: 512px;
-  height: 512px;
-  font-size: 2.125em;
+.contact-card.md {
+  font-size: 1.25em;
   letter-spacing: 0.25px;
+  width: 100px;
+  height: 100px;
+}
+
+.contact-card.md img {
+  width: 32px;
+  height: 32px;
 }
 
 .contact-card.lg {
-  width: 256px;
-  height: 256px;
   font-size: 2.125em;
   letter-spacing: 0.25px;
+  width: 150px;
+  height: 150px;
+}
+
+.contact-card.lg img {
+  width: 48px;
+  height: 48px;
+}
+
+.contact-card.xl {
+  font-size: 2.125em;
+  letter-spacing: 0.25px;
+  width: 256px;
+  height: 256px;
+}
+
+.contact-card.xl img {
+  width: 64px;
+  height: 64px;
+}
+
+.contact-card.main {
+  margin-right: 32px;
+}
+
+.contact-card.main.md {
+  width: 200px;
+  height: 200px;
+}
+
+.contact-card.main.lg {
+  width: 300px;
+  height: 300px;
+}
+
+.contact-card.main.xl {
+  width: 450px;
+  height: 450px;
 }

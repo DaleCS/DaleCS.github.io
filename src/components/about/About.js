@@ -6,7 +6,7 @@ import "./About.css";
 import { PageHeader } from "../";
 import { useWindowDimensions } from "../../hooks";
 
-const About = forwardRef(({ scrollTo, breakpoint }, ref) => {
+const About = forwardRef(({ isVisible, breakpoint }, ref) => {
   const windowSize = useWindowDimensions();
 
   return (
@@ -15,7 +15,9 @@ const About = forwardRef(({ scrollTo, breakpoint }, ref) => {
       style={{ minHeight: windowSize.height }}
       ref={ref}
     >
-      <PageHeader delay={3500}>about me.</PageHeader>
+      <PageHeader isVisible={isVisible} delay={500} breakpoint={breakpoint}>
+        about me.
+      </PageHeader>
       <div className="about-container">
         <span className="mb-32">
           As a recent grad, I have experience building intuitive and responsive

@@ -6,20 +6,14 @@ import "./Portfolio.css";
 import { PageHeader } from "../";
 import { useWindowDimensions } from "../../hooks";
 
-// import { projects } from "../../store";
-
-const ProjectCard = ({ project, breakpoint }) => {
-  return (
-    <div className={`project-card ${breakpoint}`}>
-      <span className="h5">{project}</span>
-    </div>
-  );
+const ProjectCard = ({ className, children }) => {
+  return <div className={className}>{children}</div>;
 };
 
 const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
   const windowSize = useWindowDimensions();
 
-  const handleOnGithubClick = (e) => {
+  const handleOnClickGithub = (e) => {
     e.preventDefault();
     window.open("https://github.com/dalecs");
   };
@@ -30,21 +24,32 @@ const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
       style={{ minHeight: windowSize.height }}
       ref={ref}
     >
-      <PageHeader>projects.</PageHeader>
-      <div className={`projects-container ${breakpoint} border1`}>
-        <ProjectCard project="Degreeinsight.io" breakpoint={breakpoint} />
-        <ProjectCard project="Abode.city" breakpoint={breakpoint} />
-        <ProjectCard project="Spartanstop.com" breakpoint={breakpoint} />
-        <ProjectCard project="Spartan Agenda" breakpoint={breakpoint} />
-        <ProjectCard project="Byte Drive" breakpoint={breakpoint} />
-        <ProjectCard
-          project="Text Encryptor/Decryptor"
-          breakpoint={breakpoint}
-        />
+      <PageHeader isVisible={isVisible} delay={500} breakpoint={breakpoint}>
+        projects.
+      </PageHeader>
+      <div className={`projects-container ${breakpoint}`}>
+        <ProjectCard className={`project-card ${breakpoint}`}>
+          Degreeinsight.io
+        </ProjectCard>
+        <ProjectCard className={`project-card ${breakpoint}`}>
+          Abode.city
+        </ProjectCard>
+        <ProjectCard className={`project-card ${breakpoint}`}>
+          Spartanstop.com
+        </ProjectCard>
+        <ProjectCard className={`project-card ${breakpoint}`}>
+          Spartan Agenda
+        </ProjectCard>
+        <ProjectCard className={`project-card ${breakpoint}`}>
+          Byte Drive
+        </ProjectCard>
+        <ProjectCard className={`project-card ${breakpoint}`}>
+          Text Encryptor/Decryptor
+        </ProjectCard>
       </div>
-      <span>
+      <span className="body1">
         ... more in my{" "}
-        <span className="github-link" onClick={handleOnGithubClick}>
+        <span className="github-link" onClick={handleOnClickGithub}>
           Github
         </span>
       </span>

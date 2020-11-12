@@ -5,7 +5,7 @@ import "./Intro.css";
 import { PageHeader } from "../";
 import { useWindowDimensions } from "../../hooks";
 
-const Intro = forwardRef(({ scrollTo, breakpoint }, ref) => {
+const Intro = forwardRef(({ isVisible, breakpoint }, ref) => {
   const windowSize = useWindowDimensions();
 
   return (
@@ -14,7 +14,7 @@ const Intro = forwardRef(({ scrollTo, breakpoint }, ref) => {
       style={{ minHeight: windowSize.height }}
       ref={ref}
     >
-      <PageHeader delay={3500} breakpoint={breakpoint}>
+      <PageHeader isVisible={isVisible} delay={3500} breakpoint={breakpoint}>
         hello.
       </PageHeader>
       <div className={`intro-container ${breakpoint}`}>
