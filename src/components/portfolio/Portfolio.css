@@ -7,52 +7,48 @@
 
 .projects-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  align-content: space-between;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   margin-bottom: 2em;
-}
-
-.projects-container.xl {
-  width: 1280px;
-  height: 800px;
-}
-
-.projects-container.lg {
-  width: 896px;
-  height: 544px;
-}
-
-.projects-container.md {
-  width: 653px;
-  height: 382px;
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.05);
+  align-items: flex-start;
+  border-radius: 0.5rem;
+  padding: 1em;
+  background-color: #121212;
+  transition: background-color 100ms;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.project-card.xl {
-  width: 384px;
-  height: 384px;
+.project-card:hover {
+  background-color: rgba(255, 255, 255, 0.075);
 }
 
-.project-card.lg {
-  width: 256px;
-  height: 256px;
+.project-card-title {
+  font-size: 2.125rem;
+  letter-spacing: 0.25px;
 }
 
-.project-card.md {
-  width: 175px;
-  height: 175px;
+.project-card-date {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+.project-card-description {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
 }
 
 .github-link {

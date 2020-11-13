@@ -3,11 +3,21 @@ import React, { forwardRef } from "react";
 import "../../App.css";
 import "./Portfolio.css";
 
-import { PageHeader } from "../";
+import { TextAnimation, PageHeader } from "../";
 import { useWindowDimensions } from "../../hooks";
 
-const ProjectCard = ({ className, children }) => {
-  return <div className={className}>{children}</div>;
+import projects from "../../store/projects.json";
+
+const ProjectCard = ({ className, project }) => {
+  return (
+    <div className={`project-card ${className}`}>
+      <span className="project-card-title">
+        {`${project.title}, `}
+        <span className="project-card-date">{project.date}</span>
+      </span>
+      <span className="project-card-description">{project.description}</span>
+    </div>
+  );
 };
 
 const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
@@ -18,6 +28,10 @@ const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
     window.open("https://github.com/dalecs");
   };
 
+  const projectsMarkup = projects.map((project) => {
+    return <ProjectCard className="" project={project} />;
+  });
+
   return (
     <div
       className="section projects-bkg"
@@ -27,26 +41,7 @@ const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
       <PageHeader isVisible={isVisible} delay={500} breakpoint={breakpoint}>
         projects.
       </PageHeader>
-      <div className={`projects-container ${breakpoint}`}>
-        <ProjectCard className={`project-card ${breakpoint}`}>
-          Degreeinsight.io
-        </ProjectCard>
-        <ProjectCard className={`project-card ${breakpoint}`}>
-          Abode.city
-        </ProjectCard>
-        <ProjectCard className={`project-card ${breakpoint}`}>
-          Spartanstop.com
-        </ProjectCard>
-        <ProjectCard className={`project-card ${breakpoint}`}>
-          Spartan Agenda
-        </ProjectCard>
-        <ProjectCard className={`project-card ${breakpoint}`}>
-          Byte Drive
-        </ProjectCard>
-        <ProjectCard className={`project-card ${breakpoint}`}>
-          Text Encryptor/Decryptor
-        </ProjectCard>
-      </div>
+      <div className={`projects-container ${breakpoint}`}>{projectsMarkup}</div>
       <span className="body1">
         ... more in my{" "}
         <span className="github-link" onClick={handleOnClickGithub}>
