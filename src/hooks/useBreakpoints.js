@@ -1,11 +1,5 @@
 import { useState, useEffect } from "react";
 
-/**
- * sm = < 960px
- * md = 960px ~ 1280px
- * lg = >= 1280px
- */
-
 const calculateCurrentBreakpoints = () => {
   const width = window.innerWidth;
   if (width < 600) {
