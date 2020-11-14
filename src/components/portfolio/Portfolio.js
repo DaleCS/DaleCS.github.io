@@ -70,6 +70,7 @@ const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
   const [projectCardAnimsArr, setProjectCardAnimsArr] = useState(
     new Array(projects.length).fill(false)
   );
+  const projectCardAnimsArrRef = useRef([...projectCardAnimsArr]);
   const projectCardAnimsArrIndex = useRef(0);
   const previouslyLoaded = useRef(false);
 
@@ -79,16 +80,10 @@ const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
       setTimeout(() => {
         const loadAnimsInterval = setInterval(() => {
           if (projectCardAnimsArrIndex.current < projectCardAnimsArr.length) {
-            const newArr = [];
-            for (let i = 0; i < projectCardAnimsArr.length; i++) {
-              if (i <= projectCardAnimsArrIndex.current) {
-                newArr.push(true);
-              } else {
-                newArr.push(false);
-              }
-            }
-            projectCardAnimsArrIndex.current += 1;
-            setProjectCardAnimsArr(newArr);
+            projectCardAnimsArrRef.current[
+              projectCardAnimsArrIndex.current++
+            ] = true;
+            setProjectCardAnimsArr([...projectCardAnimsArrRef.current]);
           } else {
             clearInterval(loadAnimsInterval);
           }

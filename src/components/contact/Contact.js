@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState, useRef } from "react";
 
 import "../../App.css";
 import "./Contact.css";
@@ -14,7 +14,14 @@ import {
   GithubIcon,
 } from "../../store";
 
-const ContactCard = ({ children, icon, redirectTo, isMain, breakpoint }) => {
+const ContactCard = ({
+  icon,
+  redirectTo,
+  isMain,
+  display,
+  children,
+  breakpoint,
+}) => {
   const handleOnClick = (e) => {
     e.preventDefault();
     if (redirectTo && redirectTo.length > 0) {
@@ -24,7 +31,9 @@ const ContactCard = ({ children, icon, redirectTo, isMain, breakpoint }) => {
 
   return (
     <div
-      className={`contact-card ${isMain ? "main" : ""} ${breakpoint}`}
+      className={`contact-card ${isMain ? "main" : ""} ${
+        display ? "contact-card-anim" : ""
+      } ${breakpoint}`}
       onClick={handleOnClick}
     >
       <img src={icon} className="mb-8" alt="icon" />
@@ -35,6 +44,30 @@ const ContactCard = ({ children, icon, redirectTo, isMain, breakpoint }) => {
 
 const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
   const windowSize = useWindowDimensions();
+  const [contactCardAnimsArr, setContactCardAnimsArr] = useState(
+    new Array(4).fill(false)
+  );
+  const contactCardAnimsArrRef = useRef([...contactCardAnimsArr]);
+  const contactCardAnimsArrIndex = useRef(0);
+  const previouslyLoaded = useRef(false);
+
+  useEffect(() => {
+    if (!previouslyLoaded.current && isVisible) {
+      previouslyLoaded.current = true;
+      setTimeout(() => {
+        const loadAnimsInterval = setInterval(() => {
+          if (contactCardAnimsArrIndex.current < contactCardAnimsArr.length) {
+            contactCardAnimsArrRef.current[
+              contactCardAnimsArrIndex.current++
+            ] = true;
+            setContactCardAnimsArr([...contactCardAnimsArrRef.current]);
+          } else {
+            clearInterval(loadAnimsInterval);
+          }
+        }, 200);
+      }, 250);
+    }
+  }, [isVisible, contactCardAnimsArr]);
 
   return (
     <div
@@ -47,6 +80,7 @@ const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
       </PageHeader>
       <div className={`contact-container ${breakpoint}`}>
         <ContactCard
+          display={contactCardAnimsArr[0]}
           icon={ResumeIcon}
           redirectTo={ResumePDF}
           isMain={true}
@@ -57,6 +91,7 @@ const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
         </ContactCard>
         <div className={`other-contacts-container ${breakpoint}`}>
           <ContactCard
+            display={contactCardAnimsArr[1]}
             icon={EmailIcon}
             redirectTo="mailTo:Dale.Seen@gmail.com"
             isMain={false}
@@ -65,6 +100,7 @@ const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
             Email
           </ContactCard>
           <ContactCard
+            display={contactCardAnimsArr[2]}
             icon={LinkedInIcon}
             redirectTo="https://www.linkedin.com/in/dalecs"
             isMain={false}
@@ -73,6 +109,7 @@ const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
             LinkedIn
           </ContactCard>
           <ContactCard
+            display={contactCardAnimsArr[3]}
             icon={GithubIcon}
             redirectTo="https://github.com/dalecs"
             isMain={false}

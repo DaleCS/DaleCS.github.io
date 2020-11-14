@@ -40,6 +40,12 @@
   align-content: center;
   background-color: rgba(255, 255, 255, 0.05);
   cursor: pointer;
+  opacity: 0;
+  transition: transform 250ms;
+}
+
+.contact-card:hover {
+  transform: scale(1.05);
 }
 
 .contact-card.md {
@@ -95,4 +101,58 @@
 .contact-card.main.xl {
   width: 450px;
   height: 450px;
+}
+
+.contact-card-anim {
+  animation: fadeInExpand 500ms ease;
+  -o-animation: fadeInExpand 500ms ease;
+  -moz-animation: fadeInExpand 500ms ease;
+  -webkit-animation: fadeInExpand 500ms ease;
+  animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes fadeInExpand {
+  0% {
+    opacity: 0;
+    border-radius: 100%;
+  }
+  100% {
+    opacity: 1;
+    border-radius: 0;
+  }
+}
+
+@-moz-keyframes fadeInExpand {
+  0% {
+    opacity: 0;
+    border-radius: 100%;
+  }
+  100% {
+    opacity: 1;
+    border-radius: 0;
+  }
+}
+
+@-o-keyframes fadeInExpand {
+  0% {
+    opacity: 0;
+    border-radius: 100%;
+  }
+  100% {
+    opacity: 1;
+    border-radius: 0;
+  }
+}
+
+@-webkit-keyframes fadeInExpand {
+  0% {
+    opacity: 0;
+    border-radius: 100%;
+  }
+  100% {
+    opacity: 1;
+    border-radius: 0;
+  }
 }
