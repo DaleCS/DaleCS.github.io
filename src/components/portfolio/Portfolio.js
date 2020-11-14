@@ -75,7 +75,7 @@ const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
   const previouslyLoaded = useRef(false);
 
   useEffect(() => {
-    if (isVisible && !previouslyLoaded.current) {
+    if (!previouslyLoaded.current && isVisible) {
       previouslyLoaded.current = true;
       setTimeout(() => {
         const loadAnimsInterval = setInterval(() => {
