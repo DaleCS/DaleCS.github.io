@@ -20,25 +20,25 @@
 }
 
 .page-header-text.xl {
-  font-size: 6em;
+  font-size: 6rem;
   font-weight: lighter;
   letter-spacing: -1.5px;
 }
 
 .page-header-text.lg {
-  font-size: 4em;
+  font-size: 4rem;
   font-weight: normal;
   letter-spacing: -1.5px;
 }
 
 .page-header-text.md {
-  font-size: 3em;
+  font-size: 3rem;
   font-weight: normal;
   letter-spacing: -1.5px;
 }
 
 .page-header-text.sm {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: normal;
   letter-spacing: -1.5px;
 }

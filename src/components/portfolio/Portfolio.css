@@ -1,5 +1,4 @@
 .projects-bkg {
-  font-family: "Ubuntu", sans-serif;
   background-color: #121212;
   color: #dfe6e9;
   padding: 0;
@@ -10,19 +9,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 
 .project-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   border-radius: 0.5rem;
-  padding: 1em;
+  padding: 1rem;
   background-color: #121212;
+  opacity: 0;
+  top: 1em;
   transition: background-color 100ms;
-  cursor: pointer;
+  min-width: 100%;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -35,6 +37,15 @@
   background-color: rgba(255, 255, 255, 0.075);
 }
 
+.project-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
 .project-card-title {
   font-size: 2.125rem;
   letter-spacing: 0.25px;
@@ -44,6 +55,7 @@
   font-size: 1rem;
   letter-spacing: 0.5px;
   font-style: italic;
+  margin-left: 0.5rem;
 }
 
 .project-card-description {
@@ -51,9 +63,77 @@
   letter-spacing: 0.5px;
 }
 
+.project-card-links-container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.project-card-link {
+  cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .github-link {
-  font-size: 1em;
+  font-size: 1rem;
   letter-spacing: 0.5px;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.project-card-anims {
+  animation: fadeInUp 200ms ease;
+  -o-animation: fadeInUp 200ms ease;
+  -moz-animation: fadeInUp 200ms ease;
+  -webkit-animation: fadeInUp 200ms ease;
+  animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    top: 1em;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@-o-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    top: 1em;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@-moz-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    top: 1em;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    top: 1em;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
 }

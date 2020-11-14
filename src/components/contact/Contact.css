@@ -1,5 +1,4 @@
 .contact-bkg {
-  font-family: "Ubuntu", sans-serif;
   background-color: #121212;
   color: #dfe6e9;
   padding: 0;
@@ -44,7 +43,7 @@
 }
 
 .contact-card.md {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   letter-spacing: 0.25px;
   width: 100px;
   height: 100px;
@@ -56,7 +55,7 @@
 }
 
 .contact-card.lg {
-  font-size: 2.125em;
+  font-size: 2.125rem;
   letter-spacing: 0.25px;
   width: 150px;
   height: 150px;
@@ -68,7 +67,7 @@
 }
 
 .contact-card.xl {
-  font-size: 2.125em;
+  font-size: 2.125rem;
   letter-spacing: 0.25px;
   width: 256px;
   height: 256px;

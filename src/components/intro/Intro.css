@@ -1,5 +1,4 @@
 .intro-bkg {
-  font-family: "Ubuntu", sans-serif;
   background-color: #121212;
   color: #dfe6e9;
   padding: 0;
@@ -15,28 +14,28 @@
 
 .intro-container.xl {
   width: 1536px;
-  font-size: 6em;
+  font-size: 6rem;
   font-weight: normal;
   letter-spacing: -1.5px;
 }
 
 .intro-container.lg {
   width: 1024px;
-  font-size: 4em;
+  font-size: 4rem;
   font-weight: normal;
   letter-spacing: -1.5px;
 }
 
 .intro-container.md {
   width: 768px;
-  font-size: 3em;
+  font-size: 3rem;
   font-weight: normal;
   letter-spacing: -1.5px;
 }
 
 .intro-container.sm {
   width: 480px;
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: normal;
   letter-spacing: -1.5px;
 }
@@ -121,7 +120,7 @@
 @keyframes navbarSelectionAnims {
   0% {
     opacity: 0;
-    top: 1em;
+    top: 1rem;
   }
   100% {
     opacity: 1;

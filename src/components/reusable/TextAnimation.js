@@ -35,7 +35,7 @@ const TextAnimation = ({ isVisible, delay, className, onClick, children }) => {
             } else {
               clearInterval(writingInterval);
             }
-          }, 50);
+          }, 30);
           const scramblingInterval = setInterval(() => {
             if (paddingRef.current.length > 0) {
               let paddingText = "";
@@ -47,7 +47,7 @@ const TextAnimation = ({ isVisible, delay, className, onClick, children }) => {
             } else {
               clearInterval(scramblingInterval);
             }
-          }, 30);
+          }, 10);
         }
       }, 10);
     };
