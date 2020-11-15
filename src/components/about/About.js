@@ -16,12 +16,10 @@ const About = forwardRef(({ isVisible, breakpoint }, ref) => {
   useEffect(() => {
     if (!previouslyShown.current && isVisible) {
       previouslyShown.current = true;
+      setShowP1(true);
       setTimeout(() => {
-        setShowP1(true);
-        setTimeout(() => {
-          setShowP2(true);
-        }, 250);
-      }, 500);
+        setShowP2(true);
+      }, 250);
     }
   }, [isVisible]);
 

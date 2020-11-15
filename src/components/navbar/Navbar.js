@@ -1,18 +1,18 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import "../../App.css";
 import "./Navbar.css";
 
 import { TextAnimation } from "../";
 
-const Navbar = ({ scrollTo, breakpoint }) => {
+const Navbar = forwardRef(({ scrollTo, breakpoint }, ref) => {
   const handleHelloOnClick = (e) => {
     e.preventDefault();
     scrollTo(e.target.innerHTML);
   };
 
   return (
-    <div className="navbar">
+    <div ref={ref} className="navbar">
       <TextAnimation
         isVisible={true}
         className="navbar-selection mr-8"
@@ -47,6 +47,6 @@ const Navbar = ({ scrollTo, breakpoint }) => {
       </TextAnimation>
     </div>
   );
-};
+});
 
 export default Navbar;

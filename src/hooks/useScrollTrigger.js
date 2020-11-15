@@ -15,13 +15,10 @@ const useScrollTrigger = (sectionsRef) => {
 
     const handleScroll = () => {
       Object.keys(sectionsRef).forEach((key) => {
-        const { height, top, bottom } = sectionsRef[
+        const { top, bottom } = sectionsRef[
           key
         ].current.getBoundingClientRect();
-        if (
-          top <= height - window.innerHeight / 8 &&
-          bottom >= window.innerHeight / 8
-        ) {
+        if (top <= window.innerHeight / 4 && bottom >= 0) {
           if (!visibilityObjRef.current[key]) {
             visibilityObjRef.current[key] = true;
             setVisibilityObj({

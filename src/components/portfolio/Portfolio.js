@@ -96,18 +96,16 @@ const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
     if (!previouslyLoaded.current && isVisible) {
       console.log(`Portfolio: ${isVisible}`);
       previouslyLoaded.current = true;
-      setTimeout(() => {
-        const loadAnimsInterval = setInterval(() => {
-          if (projectSlidesAnimsArrIndex.current < projects.length) {
-            projectSlidesAnimsArrRef.current[
-              projectSlidesAnimsArrIndex.current++
-            ] = true;
-            setProjectSlidesAnimsArr([...projectSlidesAnimsArrRef.current]);
-          } else {
-            clearInterval(loadAnimsInterval);
-          }
-        }, 200);
-      }, 500);
+      const loadAnimsInterval = setInterval(() => {
+        if (projectSlidesAnimsArrIndex.current < projects.length) {
+          projectSlidesAnimsArrRef.current[
+            projectSlidesAnimsArrIndex.current++
+          ] = true;
+          setProjectSlidesAnimsArr([...projectSlidesAnimsArrRef.current]);
+        } else {
+          clearInterval(loadAnimsInterval);
+        }
+      }, 200);
     }
   }, [isVisible]);
 

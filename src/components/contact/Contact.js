@@ -54,18 +54,16 @@ const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
   useEffect(() => {
     if (!previouslyLoaded.current && isVisible) {
       previouslyLoaded.current = true;
-      setTimeout(() => {
-        const loadAnimsInterval = setInterval(() => {
-          if (contactCardAnimsArrIndex.current < contactCardAnimsArr.length) {
-            contactCardAnimsArrRef.current[
-              contactCardAnimsArrIndex.current++
-            ] = true;
-            setContactCardAnimsArr([...contactCardAnimsArrRef.current]);
-          } else {
-            clearInterval(loadAnimsInterval);
-          }
-        }, 200);
-      }, 250);
+      const loadAnimsInterval = setInterval(() => {
+        if (contactCardAnimsArrIndex.current < contactCardAnimsArr.length) {
+          contactCardAnimsArrRef.current[
+            contactCardAnimsArrIndex.current++
+          ] = true;
+          setContactCardAnimsArr([...contactCardAnimsArrRef.current]);
+        } else {
+          clearInterval(loadAnimsInterval);
+        }
+      }, 200);
     }
   }, [isVisible, contactCardAnimsArr]);
 

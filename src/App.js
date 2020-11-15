@@ -9,6 +9,7 @@ const App = () => {
   const aboutRef = useRef(null); // Holds the main div element in the About component
   const portfolioRef = useRef(null); // Holds the main div element in the Portfolio component
   const contactRef = useRef(null); // Holds the main div element in the Contact component
+  const navbarRef = useRef(null);
 
   const sectionsRef = useRef({
     intro: introRef,
@@ -42,7 +43,11 @@ const App = () => {
       }
       case "projects": {
         if (portfolioRef.current) {
-          portfolioRef.current.scrollIntoView({
+          window.scrollBy({
+            left: 0,
+            top:
+              portfolioRef.current.getBoundingClientRect().y -
+              navbarRef.current.getBoundingClientRect().height,
             behavior: "smooth",
           });
         }
@@ -63,7 +68,7 @@ const App = () => {
 
   return (
     <Fragment>
-      <Navbar scrollTo={scrollTo} breakpoint={breakpoint} />
+      <Navbar ref={navbarRef} scrollTo={scrollTo} breakpoint={breakpoint} />
       <Intro
         ref={introRef}
         isVisible={visibilityObj["intro"]}
