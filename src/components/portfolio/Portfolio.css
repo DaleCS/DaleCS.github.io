@@ -38,25 +38,6 @@
   -webkit-animation-fill-mode: forwards;
 }
 
-.project-img-links-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.project-img-links-container.md {
-  margin-bottom: 2rem;
-}
-
-.project-img-links-container.lg {
-  margin-right: 3rem;
-}
-
-.project-img-links-container.xl {
-  margin-right: 3rem;
-}
-
 .project-img {
   object-fit: contain;
 }
@@ -64,16 +45,19 @@
 .project-img.md {
   width: 320px;
   height: 256px;
+  margin-bottom: 2rem;
 }
 
 .project-img.lg {
   width: 400px;
   height: 320px;
+  margin-right: 3rem;
 }
 
 .project-img.xl {
   width: 400px;
   height: 320px;
+  margin-right: 3rem;
 }
 
 .project-links-container {
@@ -99,14 +83,6 @@
   width: 50ch;
 }
 
-.project-header {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-end;
-}
-
 .project-title {
   font-size: 2.125rem;
   letter-spacing: 0.25px;
@@ -121,6 +97,15 @@
 .project-text {
   font-size: 1rem;
   letter-spacing: 0.5px;
+}
+
+.project-header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  min-width: 100%;
 }
 
 .page-header-text {
@@ -152,6 +137,16 @@
   font-size: 2rem;
   font-weight: normal;
   letter-spacing: -1.5px;
+}
+
+.project-links {
+  position: absolute;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .github-link {

@@ -17,6 +17,7 @@ import {
 const ContactCard = ({
   icon,
   redirectTo,
+  title,
   isMain,
   display,
   children,
@@ -35,6 +36,7 @@ const ContactCard = ({
         display ? "contact-card-anim" : ""
       } ${breakpoint}`}
       onClick={handleOnClick}
+      title={title}
     >
       <img src={icon} className="mb-8" alt="icon" />
       {children}
@@ -73,7 +75,7 @@ const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
       style={{ minHeight: windowSize.height }}
       ref={ref}
     >
-      <PageHeader isVisible={isVisible} delay={500} breakpoint={breakpoint}>
+      <PageHeader isVisible={isVisible} delay={0} breakpoint={breakpoint}>
         contact.
       </PageHeader>
       <div className={`contact-container ${breakpoint}`}>
@@ -81,6 +83,7 @@ const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
           display={contactCardAnimsArr[0]}
           icon={ResumeIcon}
           redirectTo={ResumePDF}
+          title="My Resume"
           isMain={true}
           breakpoint={breakpoint}
         >
@@ -92,6 +95,7 @@ const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
             display={contactCardAnimsArr[1]}
             icon={EmailIcon}
             redirectTo="mailTo:Dale.Seen@gmail.com"
+            title="mailTo: Dale.Seen@gmail.com"
             isMain={false}
             breakpoint={breakpoint}
           >
@@ -101,6 +105,7 @@ const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
             display={contactCardAnimsArr[2]}
             icon={LinkedInIcon}
             redirectTo="https://www.linkedin.com/in/dalecs"
+            title="My LinkedIn Profile"
             isMain={false}
             breakpoint={breakpoint}
           >
@@ -110,6 +115,7 @@ const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
             display={contactCardAnimsArr[3]}
             icon={GithubIcon}
             redirectTo="https://github.com/dalecs"
+            title="My Github"
             isMain={false}
             breakpoint={breakpoint}
           >

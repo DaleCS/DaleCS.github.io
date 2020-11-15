@@ -30,6 +30,7 @@ const ProjectSlide = ({ project, isDisplayed, className, breakpoint }) => {
         }`}
         onClick={handleOnClickExternalLink}
         alt="Link to project URL"
+        title="Link to project URL"
       />
     );
   }
@@ -43,7 +44,8 @@ const ProjectSlide = ({ project, isDisplayed, className, breakpoint }) => {
         src={SourceCodeIcon}
         className="project-link"
         onClick={handleOnClickSource}
-        alt="Link to project source code (Github)"
+        alt="Link to source code (Github)"
+        title="Link to source code (Github)"
       />
     );
   }
@@ -54,24 +56,31 @@ const ProjectSlide = ({ project, isDisplayed, className, breakpoint }) => {
         isDisplayed ? "project-container-anim" : ""
       }`}
     >
-      <div className={`project-img-links-container ${breakpoint}`}>
+      {project.hasImage ? (
         <img
           src={`./images/${project.key}.png`}
           className={`project-img ${breakpoint}`}
           alt={project.key}
+          title={project.title}
         />
-        <div className="project-links-container">
-          {externalLink}
-          {sourceLink}
-        </div>
-      </div>
+      ) : (
+        <div className={`project-img ${breakpoint}`} />
+      )}
       <div className="project-description-container">
         <div className="project-header mb-16">
           <span className="project-title mr-4">{`${project.title}, `}</span>
           <span className="project-date">{project.date}</span>
+          <div className="project-links">
+            {externalLink}
+            {sourceLink}
+          </div>
         </div>
         <span className="project-text mb-16">{project.description}</span>
-        <span className="project-text mb-16">{project.abstract}</span>
+        {project.abstract.length > 0 ? (
+          <span className="project-text mb-16">{project.abstract}</span>
+        ) : (
+          <Fragment />
+        )}
         <span className="project-text mb-16">{`Role: ${project.role}`}</span>
         <span className="project-text">{project.technologies}</span>
       </div>
@@ -94,7 +103,6 @@ const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
 
   useEffect(() => {
     if (!previouslyLoaded.current && isVisible) {
-      console.log(`Portfolio: ${isVisible}`);
       previouslyLoaded.current = true;
       const loadAnimsInterval = setInterval(() => {
         if (projectSlidesAnimsArrIndex.current < projects.length) {
@@ -126,7 +134,7 @@ const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
       <TextAnimation
         className={`page-header-text ${breakpoint}`}
         isVisible={isVisible}
-        delay={500}
+        delay={0}
       >
         projects.
       </TextAnimation>

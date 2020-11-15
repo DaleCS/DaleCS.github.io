@@ -29,7 +29,7 @@ const About = forwardRef(({ isVisible, breakpoint }, ref) => {
       style={{ minHeight: windowSize.height }}
       ref={ref}
     >
-      <PageHeader isVisible={isVisible} delay={500} breakpoint={breakpoint}>
+      <PageHeader isVisible={isVisible} delay={0} breakpoint={breakpoint}>
         about me.
       </PageHeader>
       <div className={`about-container ${breakpoint}`}>
