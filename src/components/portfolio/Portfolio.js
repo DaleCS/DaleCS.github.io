@@ -1,133 +1,141 @@
 import React, {
   Fragment,
+  forwardRef,
   useState,
   useRef,
-  forwardRef,
   useEffect,
 } from "react";
 
 import "../../App.css";
 import "./Portfolio.css";
 
-import { TextAnimation, PageHeader } from "../";
-import { useWindowDimensions } from "../../hooks";
+import { TextAnimation } from "../";
 
 import { projects, ExternalLinkIcon, SourceCodeIcon } from "../../store";
 
-const ProjectCard = ({ display, className, project }) => {
-  let urlLinkMarkup = <Fragment />,
-    githubLinkMarkup = <Fragment />;
+const ProjectSlide = ({ project, isDisplayed, className, breakpoint }) => {
+  let externalLink = <Fragment />,
+    sourceLink = <Fragment />;
 
-  if (project.deployed) {
-    const handleOnClickURL = (e) => {
+  if (project.url.length > 0) {
+    const handleOnClickExternalLink = (e) => {
       e.preventDefault();
       window.open(project.url);
     };
-    urlLinkMarkup = (
+    externalLink = (
       <img
         src={ExternalLinkIcon}
-        className={`project-card-link ${project.private ? "" : "mr-4"}`}
-        onClick={handleOnClickURL}
-        alt="URL"
+        className={`project-link ${
+          project.githubURL.length > 0 ? "mr-16" : ""
+        }`}
+        onClick={handleOnClickExternalLink}
+        alt="Link to project URL"
       />
     );
   }
-  if (!project.private) {
+  if (project.githubURL.length > 0) {
     const handleOnClickSource = (e) => {
       e.preventDefault();
       window.open(project.githubURL);
     };
-    githubLinkMarkup = (
+    sourceLink = (
       <img
         src={SourceCodeIcon}
-        className="project-card-link"
+        className="project-link"
         onClick={handleOnClickSource}
-        alt="Source Code"
+        alt="Link to project source code (Github)"
       />
     );
   }
 
   return (
     <div
-      className={`project-card ${className} ${
-        display ? "project-card-anims" : ""
+      className={`project-container ${className} ${breakpoint} ${
+        isDisplayed ? "project-container-anim" : ""
       }`}
     >
-      <div className="project-card-links-container">
-        {urlLinkMarkup}
-        {githubLinkMarkup}
+      <div className={`project-img-links-container ${breakpoint}`}>
+        <img
+          src={`./images/${project.key}.png`}
+          className={`project-img ${breakpoint}`}
+          alt={project.key}
+        />
+        <div className="project-links-container">
+          {externalLink}
+          {sourceLink}
+        </div>
       </div>
-      <div className="project-card-header">
-        <span className="project-card-title">{`${project.title},`}</span>
-        <span className="project-card-date">{project.date}</span>
+      <div className="project-description-container">
+        <div className="project-header mb-16">
+          <span className="project-title mr-4">{`${project.title}, `}</span>
+          <span className="project-date">{project.date}</span>
+        </div>
+        <span className="project-text mb-16">{project.description}</span>
+        <span className="project-text mb-16">{project.abstract}</span>
+        <span className="project-text mb-16">{`Role: ${project.role}`}</span>
+        <span className="project-text">{project.technologies}</span>
       </div>
-      <span className="project-card-description">{project.description}</span>
     </div>
   );
 };
 
 const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
-  const [projectCardAnimsArr, setProjectCardAnimsArr] = useState(
+  const [projectSlidesAnimsArr, setProjectSlidesAnimsArr] = useState(
     new Array(projects.length).fill(false)
   );
-  const projectCardAnimsArrRef = useRef([...projectCardAnimsArr]);
-  const projectCardAnimsArrIndex = useRef(0);
+  const projectSlidesAnimsArrRef = useRef([...projectSlidesAnimsArr]);
+  const projectSlidesAnimsArrIndex = useRef(0);
   const previouslyLoaded = useRef(false);
-
-  useEffect(() => {
-    if (!previouslyLoaded.current && isVisible) {
-      previouslyLoaded.current = true;
-      setTimeout(() => {
-        const loadAnimsInterval = setInterval(() => {
-          if (projectCardAnimsArrIndex.current < projectCardAnimsArr.length) {
-            projectCardAnimsArrRef.current[
-              projectCardAnimsArrIndex.current++
-            ] = true;
-            setProjectCardAnimsArr([...projectCardAnimsArrRef.current]);
-          } else {
-            clearInterval(loadAnimsInterval);
-          }
-        }, 100);
-      }, 250);
-    }
-  }, [isVisible, projectCardAnimsArr]);
-
-  const windowSize = useWindowDimensions();
 
   const handleOnClickGithub = (e) => {
     e.preventDefault();
     window.open("https://github.com/dalecs");
   };
 
-  const projectsMarkup = projects.map((project, index) => {
+  useEffect(() => {
+    if (!previouslyLoaded.current && isVisible) {
+      console.log(`Portfolio: ${isVisible}`);
+      previouslyLoaded.current = true;
+      setTimeout(() => {
+        const loadAnimsInterval = setInterval(() => {
+          if (projectSlidesAnimsArrIndex.current < projects.length) {
+            projectSlidesAnimsArrRef.current[
+              projectSlidesAnimsArrIndex.current++
+            ] = true;
+            setProjectSlidesAnimsArr([...projectSlidesAnimsArrRef.current]);
+          } else {
+            clearInterval(loadAnimsInterval);
+          }
+        }, 200);
+      }, 500);
+    }
+  }, [isVisible]);
+
+  let projectSlidesMarkup = projects.map((project, index) => {
     return (
-      <ProjectCard
-        className=""
-        display={projectCardAnimsArr[index]}
+      <ProjectSlide
+        className="mb-48"
         project={project}
+        isDisplayed={projectSlidesAnimsArr[index]}
+        breakpoint={breakpoint}
         key={project.key}
       />
     );
   });
 
   return (
-    <div
-      className="section projects-bkg"
-      style={{ minHeight: windowSize.height }}
-      ref={ref}
-    >
-      <PageHeader isVisible={isVisible} delay={500} breakpoint={breakpoint}>
-        projects.
-      </PageHeader>
-      <div className={`projects-container ${breakpoint}`}>{projectsMarkup}</div>
+    <div className="section projects-bkg" ref={ref}>
       <TextAnimation
+        className={`page-header-text ${breakpoint}`}
         isVisible={isVisible}
-        delay={1050}
-        className="github-link"
-        onClick={handleOnClickGithub}
+        delay={500}
       >
-        ... more in my Github
+        projects.
       </TextAnimation>
+      {projectSlidesMarkup}
+      <span className="github-link" onClick={handleOnClickGithub}>
+        ... more in my Github
+      </span>
     </div>
   );
 });

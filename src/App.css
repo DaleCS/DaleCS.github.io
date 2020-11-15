@@ -129,6 +129,14 @@
   margin-right: 3rem;
 }
 
+.mr-128 {
+  margin-right: 8rem;
+}
+
+.ml-16 {
+  margin-left: 1rem;
+}
+
 /* Debugging */
 .border1 {
   border: 1px solid white;

@@ -52,12 +52,10 @@ const TextAnimation = ({ isVisible, delay, className, onClick, children }) => {
       }, 10);
     };
 
-    if (!previouslyLoaded.current) {
-      if (isVisible) {
-        previouslyLoaded.current = true;
-        setTimeout(initialCallback, delay ? delay : 0);
-        setText("");
-      }
+    if (!previouslyLoaded.current && isVisible) {
+      previouslyLoaded.current = true;
+      setTimeout(initialCallback, delay ? delay : 0);
+      setText("");
     }
   }, [isVisible, delay, children]);
 

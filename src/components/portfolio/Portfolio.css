@@ -4,100 +4,181 @@
   padding: 0;
 }
 
-.projects-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 2rem;
-}
-
-.project-card {
+.project-container {
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  background-color: #121212;
+  box-sizing: border-box;
   opacity: 0;
-  top: 1em;
-  transition: background-color 100ms;
-  min-width: 100%;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  top: 2rem;
 }
 
-.project-card:hover {
-  background-color: rgba(255, 255, 255, 0.075);
-}
-
-.project-card-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-end;
-  margin: 0;
-  padding: 0;
-}
-
-.project-card-title {
-  font-size: 2.125rem;
-  letter-spacing: 0.25px;
-}
-
-.project-card-date {
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-  font-style: italic;
-  margin-left: 0.5rem;
-}
-
-.project-card-description {
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-}
-
-.project-card-links-container {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
+.project-container.md {
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  align-self: flex-end;
+}
+.project-container.lg {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.project-container.xl {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.project-card-link {
-  cursor: pointer;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.github-link {
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.project-card-anims {
-  animation: fadeInUp 200ms ease;
-  -o-animation: fadeInUp 200ms ease;
-  -moz-animation: fadeInUp 200ms ease;
-  -webkit-animation: fadeInUp 200ms ease;
+.project-container-anim {
+  animation: fadeInUp 750ms ease;
+  -o-animation: fadeInUp 750ms ease;
+  -moz-animation: fadeInUp 750ms ease;
+  -webkit-animation: fadeInUp 750ms ease;
   animation-fill-mode: forwards;
   -o-animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
 }
 
+.project-img-links-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-img-links-container.md {
+  margin-bottom: 2rem;
+}
+
+.project-img-links-container.lg {
+  margin-right: 3rem;
+}
+
+.project-img-links-container.xl {
+  margin-right: 3rem;
+}
+
+.project-img {
+  object-fit: contain;
+}
+
+.project-img.md {
+  width: 320px;
+  height: 256px;
+}
+
+.project-img.lg {
+  width: 400px;
+  height: 320px;
+}
+
+.project-img.xl {
+  width: 400px;
+  height: 320px;
+}
+
+.project-links-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.project-link {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.project-description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1rem;
+  width: 50ch;
+}
+
+.project-header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.project-title {
+  font-size: 2.125rem;
+  letter-spacing: 0.25px;
+}
+
+.project-date {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+.project-text {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.page-header-text {
+  font-family: "Source Code Pro", monospace;
+  color: #2d3436;
+  white-space: nowrap;
+  margin-bottom: 4rem;
+}
+
+.page-header-text.xl {
+  font-size: 6rem;
+  font-weight: lighter;
+  letter-spacing: -1.5px;
+}
+
+.page-header-text.lg {
+  font-size: 4rem;
+  font-weight: normal;
+  letter-spacing: -1.5px;
+}
+
+.page-header-text.md {
+  font-size: 3rem;
+  font-weight: normal;
+  letter-spacing: -1.5px;
+}
+
+.page-header-text.sm {
+  font-size: 2rem;
+  font-weight: normal;
+  letter-spacing: -1.5px;
+}
+
+.github-link {
+  position: relative;
+  font-size: 1rem;
+  letter-spacing: 0.15px;
+  text-decoration: underline;
+  cursor: pointer;
+  opacity: 0;
+  top: 2rem;
+  animation: fadeInUp 750ms ease;
+  -o-animation: fadeInUp 750ms ease;
+  -moz-animation: fadeInUp 750ms ease;
+  -webkit-animation: fadeInUp 750ms ease;
+  animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-delay: 1900ms;
+  -o-animation-delay: 1900ms;
+  -moz-animation-delay: 1900ms;
+  -webkit-animation-delay: 1900ms;
+}
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    top: 1em;
+    top: 2rem;
   }
   100% {
     opacity: 1;
@@ -108,7 +189,7 @@
 @-o-keyframes fadeInUp {
   0% {
     opacity: 0;
-    top: 1em;
+    top: 2rem;
   }
   100% {
     opacity: 1;
@@ -119,7 +200,7 @@
 @-moz-keyframes fadeInUp {
   0% {
     opacity: 0;
-    top: 1em;
+    top: 2rem;
   }
   100% {
     opacity: 1;
@@ -130,7 +211,7 @@
 @-webkit-keyframes fadeInUp {
   0% {
     opacity: 0;
-    top: 1em;
+    top: 2rem;
   }
   100% {
     opacity: 1;
