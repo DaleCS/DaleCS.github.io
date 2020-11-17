@@ -23,8 +23,7 @@ const Intro = forwardRef(({ isVisible, breakpoint }, ref) => {
           <span className="underlined">Dale Christian Seen</span>.
         </span>
         <span className="intro-container-text-line-2">
-          I'm an aspiring <span className="clr-blue">Full-Stack Developer</span>
-          .
+          I'm an aspiring <span className="clr-blue">Front-End Developer</span>.
         </span>
         <div className="intro-container-borderanim" />
       </div>

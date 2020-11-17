@@ -44,7 +44,8 @@ const About = forwardRef(({ isVisible, breakpoint }, ref) => {
         <span className={`about-p2 ${showP2 ? "about-p-anims" : ""}`}>
           I seek to dive deeper into the world of web development and will take
           on new opportunities that will allow me to grow as a software
-          engineer.
+          engineer. While I aspire to be a front-end developer, I am open to
+          full-stack and back-end development positions as well.
         </span>
       </div>
     </div>
