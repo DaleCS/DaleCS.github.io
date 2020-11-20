@@ -43,11 +43,7 @@ const App = () => {
       }
       case "projects": {
         if (portfolioRef.current) {
-          window.scrollBy({
-            left: 0,
-            top:
-              portfolioRef.current.getBoundingClientRect().y -
-              navbarRef.current.getBoundingClientRect().height,
+          portfolioRef.current.scrollIntoView({
             behavior: "smooth",
           });
         }
