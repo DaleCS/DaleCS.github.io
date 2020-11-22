@@ -14,60 +14,53 @@ import {
   GithubIcon,
 } from "../../store";
 
-const ContactCard = ({
-  icon,
-  redirectTo,
-  title,
-  isMain,
-  display,
-  children,
-  breakpoint,
-}) => {
-  const handleOnClick = (e) => {
-    e.preventDefault();
-    if (redirectTo && redirectTo.length > 0) {
-      window.open(redirectTo);
-    }
-  };
-
-  return (
-    <div
-      className={`contact-card ${isMain ? "main" : ""} ${
-        display ? "contact-card-anim" : ""
-      } ${breakpoint}`}
-      onClick={handleOnClick}
-      title={title}
-    >
-      <img src={icon} className="mb-8" alt="icon" />
-      {children}
-    </div>
-  );
-};
+const NUM_OF_CONTACTS = 4;
 
 const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
-  const windowSize = useWindowDimensions();
-  const [contactCardAnimsArr, setContactCardAnimsArr] = useState(
-    new Array(4).fill(false)
+  const [surfaceAnims, setSurfaceAnims] = useState(
+    new Array(NUM_OF_CONTACTS).fill(false)
   );
-  const contactCardAnimsArrRef = useRef([...contactCardAnimsArr]);
-  const contactCardAnimsArrIndex = useRef(0);
+  const surfaceAnimsRef = useRef([...surfaceAnims]);
+  const surfaceAnimsIndex = useRef(0);
   const previouslyLoaded = useRef(false);
+
+  const windowSize = useWindowDimensions();
 
   useEffect(() => {
     if (!previouslyLoaded.current && isVisible) {
       previouslyLoaded.current = true;
-      const loadAnimsInterval = setInterval(() => {
-        if (contactCardAnimsArrIndex.current < contactCardAnimsArr.length) {
-          contactCardAnimsArrRef.current[
-            contactCardAnimsArrIndex.current++
-          ] = true;
-          setContactCardAnimsArr([...contactCardAnimsArrRef.current]);
-        } else {
-          clearInterval(loadAnimsInterval);
+      const animsInterval = setInterval(() => {
+        surfaceAnimsRef.current[surfaceAnimsIndex.current++] = true;
+        setSurfaceAnims([...surfaceAnimsRef.current]);
+
+        if (surfaceAnimsIndex.current >= NUM_OF_CONTACTS) {
+          clearInterval(animsInterval);
         }
       }, 200);
     }
-  }, [isVisible, contactCardAnimsArr]);
+  }, [isVisible, surfaceAnims]);
+
+  const handleOnClickResume = (e) => {
+    e.preventDefault();
+    if (ResumePDF) {
+      window.open(ResumePDF);
+    }
+  };
+
+  const handleOnClickEmail = (e) => {
+    e.preventDefault();
+    window.open("mailTo:Dale.Seen@gmail.com");
+  };
+
+  const handleOnClickLinkedIn = (e) => {
+    e.preventDefault();
+    window.open("https://www.linkedin.com/in/dalecs");
+  };
+
+  const handleOnClickGithub = (e) => {
+    e.preventDefault();
+    window.open("https://github.com/dalecs");
+  };
 
   return (
     <div
@@ -75,52 +68,62 @@ const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
       style={{ minHeight: windowSize.height }}
       ref={ref}
     >
-      <PageHeader isVisible={isVisible} delay={0} breakpoint={breakpoint}>
+      <PageHeader isVisible={true} delay={0} breakpoint={breakpoint}>
         contact.
       </PageHeader>
-      <div className={`contact-container ${breakpoint}`}>
-        <ContactCard
-          display={contactCardAnimsArr[0]}
-          icon={ResumeIcon}
-          redirectTo={ResumePDF}
+      <div className={`contact-outer-container--${breakpoint}`}>
+        <div
           title="My Resume"
-          isMain={true}
-          breakpoint={breakpoint}
+          onClick={handleOnClickResume}
+          className={`resume-surface ${
+            surfaceAnims[0] ? "contact-surface-appear" : ""
+          }`}
         >
-          <span>My Resume</span>
-          <span>(.pdf, ~137KB)</span>
-        </ContactCard>
-        <div className={`other-contacts-container ${breakpoint}`}>
-          <ContactCard
-            display={contactCardAnimsArr[1]}
-            icon={EmailIcon}
-            redirectTo="mailTo:Dale.Seen@gmail.com"
-            title="mailTo: Dale.Seen@gmail.com"
-            isMain={false}
-            breakpoint={breakpoint}
-          >
-            Email
-          </ContactCard>
-          <ContactCard
-            display={contactCardAnimsArr[2]}
-            icon={LinkedInIcon}
-            redirectTo="https://www.linkedin.com/in/dalecs"
-            title="My LinkedIn Profile"
-            isMain={false}
-            breakpoint={breakpoint}
-          >
-            LinkedIn
-          </ContactCard>
-          <ContactCard
-            display={contactCardAnimsArr[3]}
-            icon={GithubIcon}
-            redirectTo="https://github.com/dalecs"
-            title="My Github"
-            isMain={false}
-            breakpoint={breakpoint}
-          >
-            Github
-          </ContactCard>
+          <img
+            src={ResumeIcon}
+            className={`icon--${breakpoint}`}
+            alt="My Resume"
+          />
+          <span className={`surface-text--${breakpoint}`}>My Resume</span>
+          <span className={`surface-text--${breakpoint}`}>(.pdf, ~137KB)</span>
+        </div>
+        <div
+          title="mailTo: Dale.Seen@gmail.com"
+          onClick={handleOnClickEmail}
+          className={`other-contact-surface ${
+            surfaceAnims[1] ? "contact-surface-appear" : ""
+          }`}
+        >
+          <img src={EmailIcon} className={`icon--${breakpoint}`} alt="Email" />
+          <span className={`surface-text--${breakpoint}`}>Email</span>
+        </div>
+        <div
+          title="My LinkedIn"
+          onClick={handleOnClickLinkedIn}
+          className={`other-contact-surface ${
+            surfaceAnims[2] ? "contact-surface-appear" : ""
+          }`}
+        >
+          <img
+            src={LinkedInIcon}
+            className={`icon--${breakpoint}`}
+            alt="LinkedIn"
+          />
+          <span className={`surface-text--${breakpoint}`}>LinkedIn</span>
+        </div>
+        <div
+          title="My Github"
+          onClick={handleOnClickGithub}
+          className={`other-contact-surface ${
+            surfaceAnims[3] ? "contact-surface-appear" : ""
+          }`}
+        >
+          <img
+            src={GithubIcon}
+            className={`icon--${breakpoint}`}
+            alt="Github"
+          />
+          <span className={`surface-text--${breakpoint}`}>Github</span>
         </div>
       </div>
     </div>
