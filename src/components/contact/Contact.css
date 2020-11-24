@@ -5,6 +5,7 @@
 }
 
 .contact-outer-container--md {
+  z-index: 1;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -14,6 +15,7 @@
 }
 
 .contact-outer-container--lg {
+  z-index: 1;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -23,6 +25,7 @@
 }
 
 .contact-outer-container--xl {
+  z-index: 1;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
