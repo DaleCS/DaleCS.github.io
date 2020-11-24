@@ -266,7 +266,11 @@ const Portfolio = forwardRef(({ isVisible, breakpoint }, ref) => {
       className="section projects-bkg"
       ref={ref}
     >
-      <PageHeader isVisible={isVisible} delay={0} breakpoint={breakpoint}>
+      <PageHeader
+        location="topLeft"
+        isVisible={isVisible}
+        breakpoint={breakpoint}
+      >
         projects.
       </PageHeader>
       <div

@@ -27,7 +27,7 @@ const Navbar = forwardRef(({ scrollTo, breakpoint }, ref) => {
         delay={3600}
         onClick={handleHelloOnClick}
       >
-        about me
+        about_me
       </TextAnimation>
       <TextAnimation
         isVisible={true}

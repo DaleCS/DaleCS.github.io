@@ -14,7 +14,12 @@ const Intro = forwardRef(({ isVisible, breakpoint }, ref) => {
       style={{ minHeight: windowSize.height }}
       ref={ref}
     >
-      <PageHeader isVisible={true} delay={3500} breakpoint={breakpoint}>
+      <PageHeader
+        location="bottomLeft"
+        isVisible={isVisible}
+        delay={3500}
+        breakpoint={breakpoint}
+      >
         hello.
       </PageHeader>
       <div className={`intro-container ${breakpoint}`}>

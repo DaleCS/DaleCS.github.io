@@ -23,15 +23,13 @@ const About = forwardRef(({ isVisible, breakpoint }, ref) => {
     }
   }, [isVisible]);
 
+  const outerStyle =
+    breakpoint === "md" || breakpoint === "lg" || breakpoint === "xl"
+      ? { height: windowSize.height }
+      : { minHeight: windowSize.height };
+
   return (
-    <div
-      className="section about-bkg"
-      style={{ minHeight: windowSize.height }}
-      ref={ref}
-    >
-      <PageHeader isVisible={isVisible} delay={0} breakpoint={breakpoint}>
-        about me.
-      </PageHeader>
+    <div className="section about-bkg" style={outerStyle} ref={ref}>
       <div className={`about-container ${breakpoint}`}>
         <span className={`about-p1 ${showP1 ? "about-p-anims" : ""}`}>
           As a recent grad, I have experience building intuitive and responsive
@@ -48,6 +46,13 @@ const About = forwardRef(({ isVisible, breakpoint }, ref) => {
           full-stack and back-end development positions as well.
         </span>
       </div>
+      <PageHeader
+        location="bottomLeft"
+        isVisible={isVisible}
+        breakpoint={breakpoint}
+      >
+        about me.
+      </PageHeader>
     </div>
   );
 });

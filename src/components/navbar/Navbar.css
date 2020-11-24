@@ -12,6 +12,7 @@
 }
 
 .navbar-selection {
+  font-family: monospace;
   font-size: 1.25rem;
   font-weight: lighter;
   letter-spacing: 0px;

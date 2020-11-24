@@ -33,6 +33,7 @@ const App = () => {
         break;
       }
       case "aboutme":
+      case "about_me":
       case "about me": {
         if (aboutRef.current) {
           aboutRef.current.scrollIntoView({

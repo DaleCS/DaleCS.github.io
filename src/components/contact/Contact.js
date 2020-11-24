@@ -68,8 +68,12 @@ const Contact = forwardRef(({ isVisible, breakpoint }, ref) => {
       style={{ minHeight: windowSize.height }}
       ref={ref}
     >
-      <PageHeader isVisible={true} delay={0} breakpoint={breakpoint}>
-        contact.
+      <PageHeader
+        location="bottomLeft"
+        isVisible={isVisible}
+        breakpoint={breakpoint}
+      >
+        contacts.
       </PageHeader>
       <div className={`contact-outer-container--${breakpoint}`}>
         <div
