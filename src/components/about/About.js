@@ -32,18 +32,20 @@ const About = forwardRef(({ isVisible, breakpoint }, ref) => {
     <div className="section about-bkg" style={outerStyle} ref={ref}>
       <div className={`about-container ${breakpoint}`}>
         <span className={`about-p1 ${showP1 ? "about-p-anims" : ""}`}>
-          As a recent grad, I have experience building intuitive and responsive
-          UI for a variety of web pages ranging from regular static pages to
-          interactive search w/ filter pages using modern frameworks such as
-          React and Angular. I also have experience building RESTful APIs using
-          Express.js and Spring Boot in order to power their corresponding
-          front-end functionalities.
+          I am a recent grad from San Jose State University with my B.S. in
+          Software Engineering. I mainly focus on front-end web development, but
+          I don't shy away from back-end web and mobile development as I have
+          experience in those roles from previous projects as well. I mainly use
+          modern front-end frameworks such as React and Angular to build
+          intuitive and responsive UI for a variety of web pages. I've also used
+          back-end frameworks such as Express.js and Spring Boot to power
+          corresponding front-end features using data from NoSQL or MySQL
+          databases.
         </span>
         <span className={`about-p2 ${showP2 ? "about-p-anims" : ""}`}>
           I seek to dive deeper into the world of web development and will take
-          on new opportunities that will allow me to grow as a software
-          engineer. While I aspire to be a front-end developer, I am open to
-          full-stack and back-end development positions as well.
+          on new opportunities that will allow me to grow as an engineer. I am
+          open to front-end, back-end, or full-stack development positions.
         </span>
       </div>
       <PageHeader
