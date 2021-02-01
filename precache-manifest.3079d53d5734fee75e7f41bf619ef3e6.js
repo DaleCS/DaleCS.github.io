@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2856a5e638f5f8f1441738a565cda556",
+    "revision": "20c3c6759f5bae58e92b8cd41cc71ac6",
     "url": "/index.html"
   },
   {
-    "revision": "44331a0b05046693bf99",
+    "revision": "138d871ff7a72b70d0b7",
     "url": "/static/css/main.c333ee92.chunk.css"
   },
   {
@@ -16,16 +16,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.f208f4c8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "44331a0b05046693bf99",
-    "url": "/static/js/main.9cfeb9ca.chunk.js"
+    "revision": "138d871ff7a72b70d0b7",
+    "url": "/static/js/main.18f05f14.chunk.js"
   },
   {
     "revision": "b1db4806593819f651cc",
     "url": "/static/js/runtime-main.b387adab.js"
   },
   {
-    "revision": "8076802eb0b40381e8b0e1f5364693b1",
-    "url": "/static/media/DaleCS Public Resume 2021.8076802e.pdf"
+    "revision": "204d910da22fc4bfa11c426929fc91fe",
+    "url": "/static/media/DaleCS Public Resume 2021.204d910d.pdf"
   },
   {
     "revision": "e1ee806075a5a2933f3ac5e74d986dee",
