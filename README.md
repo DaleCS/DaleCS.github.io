@@ -6,6 +6,7 @@ This is my web portfolio that I developed using React. It is deployed as a GitHu
 
 1. Clone repository
 2. `cd` to root project directory. If you're using `nvm`, run `nvm use` to use the same node version that was used to develop this
-3. Run locally using `npm start`.
+3. Install node dependencies by running `npm install`
+4. Run locally using `npm start`.
 
 Optionally if you have docker and docker-compose, you can run with `npm run dev`
